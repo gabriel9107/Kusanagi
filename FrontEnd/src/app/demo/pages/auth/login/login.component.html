@@ -1,3 +1,4 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSumit()">
 <div class="auth-main">
   <div class="auth-wrapper version-1">
     <div class="auth-form">
@@ -12,14 +13,13 @@
           <div class="text-start">
             <label for="name" class="f-w-500">Entra tu Email</label>
             <mat-form-field appearance="outline" class="w-100 m-t-5">
-              <input matInput [formControl]="email" required [(ngModel)]="Email" />
-              @if (email.invalid) {
-                <mat-error>{{ getErrorMessage() }}</mat-error>
-              }
+              <input matInput  required  placeholder="contraseña" formControlName="email" />
+             
+     
             </mat-form-field>
             <label for="name" class="f-w-500">Entra tu clave</label>
             <mat-form-field appearance="outline" class="w-100 m-t-5">
-              <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password" />
+              <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" />
               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
               </button>
@@ -30,7 +30,7 @@
             <a class="f-w-400 f-14 text-primary-500 m-b-0" href="javascript:">Olvide mi contraseña </a>
           </div>
           <div class="grid">
-            <button mat-flat-button color="primary" class="b-rad-20 m-t-15">Login</button>
+            <button mat-flat-button color="primary" type="submit" class="b-rad-20 m-t-15">Login</button>
           </div>
           <div class="check-me m-t-20">
             <h6 class="f-w-400 text-muted m-b-0">No tienes una cuenta?</h6>
